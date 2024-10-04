@@ -3,7 +3,7 @@
 body {
   background: url(../img/bgblanco.png) repeat;
   text-align: justify;
-  font-family: Tahoma, Geneva, sans-serif; /* Manteniendo la fuente original para el resto */
+  font-family: Tahoma, Geneva, sans-serif; 
   font-size: 14px;
   margin: 0;
   padding: 0;
