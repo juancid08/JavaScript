@@ -33,7 +33,6 @@ window.onload = () => {
             alert("La contraseña no puede estar vacía.");
             return; 
         }
-
         // Validación de las credenciales
         if (usernameInput === validUsername && passwordInput === validPassword) {
             loginMessage.innerText = "¡Bienvenido!";
