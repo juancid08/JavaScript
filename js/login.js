@@ -34,7 +34,7 @@ window.onload = () => {
             setCookie("username", usernameInput, 2); 
 
             setTimeout(() => {
-                window.location.href = "main.html"; // Redirigir a main.html
+                window.location.href = "main.html"; 
             }, 2000);
         } else {
             alert("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");

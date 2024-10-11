@@ -64,7 +64,6 @@ window.onload = () => {
 // Función que redirige al login dependiendo de la ruta actual
 function redirectToLogin() {
     const path = window.location.pathname; 
-    console.log("Ruta actual:", path); // Para depuración
 
     // Comprobar si estás en una de las subcarpetas de ejercicios
     if (path.includes("/ejercicios/minicalculadora/index.html") || path.includes("/ejercicios/conversorbases/index.html")) {
