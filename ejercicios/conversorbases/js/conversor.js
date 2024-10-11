@@ -1,3 +1,5 @@
+"use strict";
+//Función para convertir en binario
 function convertirBinario() {
   const numDecimal = document.getElementById("numDecimal").value;
   if (numDecimal === '') {
@@ -10,7 +12,7 @@ function convertirBinario() {
   limpiarResultados("resultadoOctal");
   limpiarResultados("resultadoHexadecimal");
 }
-
+//Función para convertir un número en octal
 function convertirOctal() {
   const numDecimal = document.getElementById("numDecimal").value;
   if (numDecimal === '') {
@@ -23,7 +25,7 @@ function convertirOctal() {
   limpiarResultados("resultadoBinario");
   limpiarResultados("resultadoHexadecimal");
 }
-
+//Función para convertir un número en hexadecimal
 function convertirHexadecimal() {
   const numDecimal = document.getElementById("numDecimal").value;
   if (numDecimal === '') {
@@ -36,7 +38,7 @@ function convertirHexadecimal() {
   limpiarResultados("resultadoBinario");
   limpiarResultados("resultadoOctal");
 }
-
+//Función para limpiar los resultados
 function limpiarResultados(id) {
-  document.getElementById(id).style.display = "none"; // Ocultar resultados no relevantes
+  document.getElementById(id).style.display = "none"; 
 }
