@@ -13,7 +13,7 @@ body {
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  background: url(../img/bgblue2.png) repeat;
+  background: url(../img/bgblue2.png) repeat; 
   opacity: 0.5;
   padding: 5px;
   color: rgb(255, 250, 250, 0.9);
@@ -49,26 +49,103 @@ body {
       margin-top: 20px; 
   }
 }
+.greeting-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); 
+  color: white; 
+  font-size: 20px; 
+  border-radius: 10px; 
+  text-align: center;
+  opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease; 
+}
+
+.greeting-message.show {
+  opacity: 1; 
+  visibility: visible; 
+}
+
+.greeting-message.hide {
+  opacity: 0; 
+  visibility: hidden; 
+}
+
 
 .topnav {
+  background-color: #333;
   overflow: hidden;
-  background-color: rgb(210, 105, 30, 0.5);
-  opacity: 0.85;
 }
+
 
 .topnav a {
   float: left;
   display: block;
-  color: rgb(255, 250, 250, 0.9);
-  text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.75);
+  color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: 17px;
 }
 
-.topnav a:hover {
-  background-color: rgb(128, 128, 128, 0.25);
-  color: rgb(255, 215, 0, 0.75);
+
+.topnav-select {
+  float: left;
+  padding: 14px 16px;
+  background-color: #333;
+  color: #f2f2f2;
+  border: none;
+  font-size: 17px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+.topnav-select:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 741px) {
+  .topnav a:not(:first-child), .topnav-select, #logoutButton {
+    display: none; 
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a, .topnav.responsive .topnav-select, .topnav.responsive #logoutButton {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  #logoutButton:hover{
+    background-color:#e11515 ;
+  }
+
+}
+
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
 }
 
 .container {
@@ -82,11 +159,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: auto;
+  width: 100%;
   border: 1px solid rgb(211, 211, 211, 0.5);
   box-shadow: 2px 2px 8px 4px #d3d3d3d1;
   border-radius: 15px;
   font-family: sans-serif;
+}
+#logoutButton{
+  float: right;
+}
+#logoutButton:hover{
+  background-color: #e11515;
 }
 
 .cardTitle {
@@ -97,6 +180,8 @@ body {
 .cardBody {
   padding: 10px;
   flex: 1 1 100%;
+  text-align: center;
+  color: red;
 }
 
 .cardFooter {
@@ -226,3 +311,4 @@ body {
     padding: 8px;
   }
 }
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Calculadora y Conversor de Bases</title>
+  <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="./css/styles.css" rel="stylesheet" type="text/css" />
+
+  <script defer src="./../../js/getCookies.js"></script>
+  <script defer src="./../../js/deleteCookies.js"></script>
+  <script defer src="./../../js/setCookies.js"></script>
+  <script defer src="./../../js/checkCookies.js"></script>
+  <script defer src="./../../js/dropBtn.js"></script>
+  <script defer src="./js/conversor.js"></script>
+</head>
+<body>
+  
+  <div class="header">
+    <div class="header-text">
+      <h3>Ejemplos - FUNDAMENTOS DE JS (ES6)</h3>
+      <h4>Desarrollo WEB en entorno cliente</h4>
+      <h5>Plantilla03a</h5>
+    </div>
+    <img
+      src="./img/Imagen de WhatsApp 2024-09-26 a las 10.14.46_afe3ab27.jpg"
+      alt="Logo"
+      class="header-image"
+    />
+  </div>
+
+  <div class="topnav" id="myTopnav">
+    <a href="./../../main.html" class="active">Página principal</a>
+    <a href="https://es.javascript.info/js">javascript.info</a>
+    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a>
+    <a href="https://github.com/juancid08/JavaScript">GitHub</a>
+    
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">Number</option>
+      <option value="./../minicalculadora/index.html">Mini-calculadora</option>
+      <option value="./index.html">Conversor</option>
+    </select>  
+    <a href="#" id="logoutButton">Cerrar Sesión</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  <br />
+
+  <div id="greetingMessage" class="greeting-message"></div>
+  <div class="converter">
+    <h2>Conversor de Bases</h2>
+    <form id="converterForm">
+      <input type="number" id="numDecimal" placeholder="Número decimal" required>
+      <button type="button" onclick="convertirBinario()">Convertir a Binario</button>
+      <button type="button" onclick="convertirOctal()">Convertir a Octal</button>
+      <button type="button" onclick="convertirHexadecimal()">Convertir a Hexadecimal</button>
+    </form>
+    <h3>Resultados de Conversión:</h3>
+    <div class="resultados">
+      <p id="resultadoBinario" style="display: none;">Binario: </p>
+      <p id="resultadoOctal" style="display: none;">Octal: </p>
+      <p id="resultadoHexadecimal" style="display: none;">Hexadecimal: </p>
+    </div>
+  </div>
+
+  <br />
+  <div class="footer">Juan Cid Benítez</div>
+</body>
+</html>

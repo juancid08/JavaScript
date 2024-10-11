@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Calculadora y Conversor de Bases</title>
+    <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="./css/styles.css" rel="stylesheet" type="text/css" />
+    
+    <script defer src="./../../js/getCookies.js"></script>
+    <script defer src="./../../js/deleteCookies.js"></script>
+    <script defer src="./../../js/setCookies.js"></script>
+    <script defer src="./../../js/checkCookies.js"></script>
+    <script defer src="./../../js/dropBtn.js"></script>
+    <script defer src="./js/calculadora.js"></script> <!-- Agregamos el script de la calculadora -->
+  </head>
+  <body>
+    <!-- --------HEADER---------- -->
+    <div class="header">
+      <div class="header-text">
+        <h3>Ejemplos - FUNDAMENTOS DE JS (ES6)</h3>
+        <h4>Desarrollo WEB en entorno cliente</h4>
+        <h5>Plantilla03a</h5>
+      </div>
+      <img
+        src="./img/Imagen de WhatsApp 2024-09-26 a las 10.14.46_afe3ab27.jpg"
+        alt="Logo"
+        class="header-image"
+      />
+    </div>
+    
+    <!-- ---------MENU----------- -->
+    
+    <div class="topnav" id="myTopnav">
+      <a href="./../../main.html" class="active">Página principal</a>
+      <a href="https://es.javascript.info/js">javascript.info</a>
+      <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a>
+      <a href="https://github.com/juancid08/JavaScript">GitHub</a>
+  
+      <select class="topnav-select" onchange="window.location.href=this.value;">
+        <option value="">Number</option>
+        <option value="./index.html">Mini-calculadora</option>
+        <option value="./../conversorbases/index.html">Conversor</option>
+    </select>    
+      <a href="#" id="logoutButton">Cerrar Sesión</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+    <br />
+    <div id="greetingMessage" class="greeting-message"></div>
+
+      <div class="calculator">
+        <h2>Mini Calculadora</h2>
+        <form id="calculatorForm">
+          <input type="number" id="op1" placeholder="Operando 1" required>
+          <input type="number" id="op2" placeholder="Operando 2" required>
+          <div class="buttons">
+            <button type="button" onclick="sumar()">Sumar</button>
+            <button type="button" onclick="restar()">Restar</button>
+            <button type="button" onclick="multiplicar()">Multiplicar</button>
+            <button type="button" onclick="dividir()">Dividir</button>
+            <button type="button" onclick="convertirEntero()">Valor Entero</button>
+            <button type="button" onclick="extraerParteDecimal()">Parte Decimal</button>
+            <button type="button" onclick="calcularFactorial()">Factorial de Op1</button>            
+          </div>
+        </form>
+        <!-- Resultados -->
+        <h3>Resultados:</h3>
+        <p id="resultadoCalculadora">Resultado: </p>
+
+      </div>
+    </div>
+    <br />
+    
+    <!-- ---------FOOTER----------- -->
+    <div class="footer">Juan Cid Benítez</div>
+  </body>
+</html>
