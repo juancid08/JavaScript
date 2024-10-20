@@ -4,19 +4,18 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Calculadora y Conversor de Bases</title>
+  <title>Transformador de texto-API</title>
   <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="./css/styles.css" rel="stylesheet" type="text/css" />
-
+  <script defer src="./js/transformacion-api.js"></script>
   <script defer src="./../../js/getSessionStorage.js"></script>
   <script defer src="./../../js/deleteSessionStorage.js"></script>
   <script defer src="./../../js/setSessionStorage.js"></script>
+  <script defer src="./../../js/login.js"></script>
   <script defer src="./../../js/dropBtn.js"></script>
-  <script defer src="./js/conversor.js"></script>
 </head>
 <body>
-  
-  <div class="header">
+  <header class="header">
     <div class="header-text">
       <h3>Ejemplos - FUNDAMENTOS DE JS (ES6)</h3>
       <h4>Desarrollo WEB en entorno cliente</h4>
@@ -27,14 +26,13 @@
       alt="Logo"
       class="header-image"
     />
-  </div>
+  </header>
 
-  <div class="topnav" id="myTopnav">
+  <nav class="topnav" id="myTopnav">
     <a href="./../../main.html" class="active">Página principal</a>
     <a href="https://es.javascript.info/js">javascript.info</a>
     <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a>
     <a href="https://github.com/juancid08/JavaScript">GitHub</a>
-    
     <select class="topnav-select" onchange="window.location.href=this.value;">
       <option value="">Number</option>
       <option value="./../minicalculadora/index.html">Mini-calculadora</option>
@@ -43,31 +41,42 @@
     <select class="topnav-select" onchange="window.location.href=this.value;">
       <option value="">String</option>
       <option value="./../modificartexto/index.html">Modificar texto</option>
-      <option value="./../modificartexto-api/index.html">Modificar texto-API</option>
-    </select> 
+      <option value="./index.html">Modificar texto-API</option>
+    </select>  
     <a href="#" id="logoutButton">Cerrar Sesión</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
+  </nav>
   <br />
 
-  <div id="greetingMessage" class="greeting-message"></div>
-  <div class="converter">
-    <h2>Conversor de Bases</h2>
-    <form id="converterForm">
-      <input type="number" id="numDecimal" placeholder="Número decimal" required>
-      <button type="button" onclick="convertirBinario()">Convertir a Binario</button>
-      <button type="button" onclick="convertirOctal()">Convertir a Octal</button>
-      <button type="button" onclick="convertirHexadecimal()">Convertir a Hexadecimal</button>
-    </form>
-    <h3>Resultados de Conversión:</h3>
-    <div class="resultados">
-      <p id="resultadoBinario" style="display: none;">Binario: </p>
-      <p id="resultadoOctal" style="display: none;">Octal: </p>
-      <p id="resultadoHexadecimal" style="display: none;">Hexadecimal: </p>
+  <main class="converter">
+    <h2>Transformador de Texto-API (Rick and Morty)</h2>
+    <textarea id="inputTexto" rows="5" placeholder="Escribe algo aquí..."></textarea>
+
+    <div id="character-container"></div>
+
+    <div class="button-group">
+      <button id="btnMayusculas">A-Z</button>
+      <button id="btnMinusculas">a-z</button>
+      <button id="btnPrimeraLetraMayus">A_</button>
+      <button id="btnUltimaLetraMayus">_Z</button>
+      <button id="btnPrimeraLetraMinus">a_</button>
+      <button id="btnUltimaLetraMinus">_z</button>
+      <button id="btnVocalesMayus">AEOIU</button>
+      <button id="btnVocalesMinus">aeoiu</button>
+      <button id="btnConsonantesMayus">BCD</button>
+      <button id="btnConsonantesMinus">bcd</button>
     </div>
-  </div>
 
-  <br />
-  <div class="footer">Juan Cid Benítez</div>
+    <div class="button-group">
+      <button id="btnPersonajeAleatorio">Generar Personaje Aleatorio</button>
+      <button id="btnAleatorio">Generador Aleatorio</button>
+      <button id="btnRapido">Más rápido</button>
+      <button id="btnLento">Más lento</button>
+      <button id="btnParar">Parar</button>
+    </div>
+  </main>
+
+  <footer class="footer">Juan Cid Benítez</footer>
+
 </body>
 </html>

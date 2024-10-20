@@ -1,50 +1,81 @@
 "use strict";
 
-window.onload = () => {
-    const loginForm = document.getElementById("loginForm");
-    const loginCard = document.getElementById("loginCard");
-    const loginMessage = document.getElementById("loginMessage");
-    const cancelButton = document.getElementById("cancelButton");
-    const loginButton = document.getElementById("loginButton"); 
-
-    // Credenciales predefinidas
-    const validUsername = "Juan"; 
-    const validPassword = "dejame";
-
-    // Expresión regular para validar el nombre de usuario (mínimo 3 caracteres)
-    const usernamePattern = /^.{3,}$/;
-
-    // Manejo del evento de click del botón "Ingresar"
-    loginButton.addEventListener("click", function () {
-        // Obtener los valores ingresados
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para manejar el inicio de sesión
+    function handleLogin() {
         const usernameInput = document.getElementById("username").value;
         const passwordInput = document.getElementById("password").value;
 
-        // Validación de los datos ingresados
-        if (!usernamePattern.test(usernameInput)) {
-            alert("El nombre de usuario debe tener al menos 3 caracteres.");
-            return; 
-        }
-        
-        // Validación de las credenciales
-        if (usernameInput === validUsername && passwordInput === validPassword) {
-            loginMessage.innerText = `¡Bienvenido de nuevo, ${usernameInput}!`;
+        const storedUsername = "Juan"; 
+        const storedPassword = "dejame"; 
 
-            // Establecer cookie para que expire en 2 minutos al iniciar sesión
-            setCookie("username", usernameInput, 2); 
+        // Validar credenciales
+        if (usernameInput === storedUsername && passwordInput === storedPassword) {
+            // Guardar en sessionStorage
+            setSessionStorage("loggedIn", "true");
+            setSessionStorage("username", usernameInput); // Guardar el nombre del usuario
 
-            setTimeout(() => {
-                window.location.href = "main.html"; 
-            }, 2000);
+            // Redirigir a la página principal
+            window.location.href = "./main.html";
         } else {
-            alert("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
-            loginForm.reset(); 
+            alert("Usuario o contraseña incorrectos.");
         }
-    });
+    }
 
-    // Manejo del botón de cancelar
-    cancelButton.addEventListener("click", function () {
-        loginForm.reset();
-        loginMessage.innerText = '';
-    });
-};
+    // Agregar evento al botón de inicio de sesión
+    const loginButton = document.getElementById("loginButton");
+    if (loginButton) {
+        loginButton.onclick = handleLogin;
+    }
+
+    // Función para redirigir al login
+    function redirectToLogin() {
+        const path = window.location.pathname;
+
+        if (path.includes("/ejercicios/minicalculadora/index.html") ||
+            path.includes("/ejercicios/conversorbases/index.html") ||
+            path.includes("/ejercicios/modificartexto/index.html") ||
+            path.includes("/ejercicios/modificartexto-api/index.html")) {
+            return "../../index.html"; 
+        } else if (path.includes("/main.html")) {
+            return "index.html"; 
+        } else {
+            return "index.html"; 
+        }
+    }
+
+    // Manejar el cierre de sesión
+    const logoutButton = document.getElementById("logoutButton");
+    if (logoutButton) {
+        logoutButton.onclick = function() {
+            endSession();
+            window.location.href = redirectToLogin();
+        };
+    }
+
+    // Verificar sesión al cargar el main.html
+    const username = getSessionStorage("username");
+    const greetingMessageDiv = document.getElementById("greetingMessage");
+
+    // Verificar si estamos en main.html y si hay un usuario en sesión
+    const path = window.location.pathname;
+    if (path.includes("main.html") && username) {
+        // Mostrar el saludo
+        const message = `¡Bienvenido, ${username}!`;
+        greetingMessageDiv.textContent = message;
+        greetingMessageDiv.classList.add("show"); // Añadir la clase para mostrar el saludo
+        greetingMessageDiv.style.display = "block"; 
+
+        // Ocultar el mensaje después de 5 segundos
+        setTimeout(function() {
+            greetingMessageDiv.classList.remove("show"); 
+            // Ocultar el div después de la transición
+            setTimeout(() => {
+                greetingMessageDiv.style.display = "none"; // Ocultar completamente
+            }, 500); 
+        }, 5000);
+
+        // Limpiar la sesión para que no se vuelva a mostrar el saludo en recargas
+        sessionStorage.removeItem("username");
+    }
+});

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+* {
+  box-sizing: border-box; 
+}
+
 body {
   background: url(../img/bgblanco.png) repeat;
   text-align: justify;
@@ -10,31 +14,24 @@ body {
 }
 
 .header {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  background: url(../img/bgblue2.png) repeat; 
-  opacity: 0.5;
-  padding: 5px;
-  color: rgb(255, 250, 250, 0.9);
-  text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.75);
-  height: 20vh; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  padding: 20px;
+  color: white;
 }
 
 .header-text {
-  flex: 1; 
-  text-align: center; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  padding-right: 10px; 
+  flex: 1;
+  text-align: center;
 }
 
 .header-image {
-  max-height: 100%; 
-  height: auto;
-  width: auto; 
-  object-fit: contain; 
+  max-height: 100px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 @media screen and (max-width: 768px) {
@@ -109,7 +106,7 @@ body {
   background-color: #555;
 }
 
-@media screen and (max-width: 741px) {
+@media screen and (max-width: 1050px) {
   .topnav a:not(:first-child), .topnav-select, #logoutButton {
     display: none; 
   }
@@ -204,12 +201,13 @@ body {
 }
 
 .footer {
-  background: url(../img/bgblue2.png) repeat;
-  opacity: 0.5;
   text-align: center;
-  padding: 20px;
-  color: rgb(255, 250, 250, 0.9);
-  text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.75);
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .login-card {
@@ -278,6 +276,7 @@ body {
   margin-top: 10px;
   font-size: 14px;
   text-align: center;
+  color: white;
 }
 
 
@@ -312,3 +311,32 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+.greeting-message {
+  display: none; 
+  background-color: #4CAF50; 
+  color: white; 
+  padding: 15px 30px; 
+  border-radius: 5px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  font-size: 18px; 
+  text-align: center; 
+  position: fixed; 
+  top: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 1000; 
+  opacity: 0; 
+  transition: opacity 0.5s ease-in-out; 
+}
+
+.greeting-message.show {
+  opacity: 1; 
+}

@@ -8,10 +8,9 @@
     <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="./css/styles.css" rel="stylesheet" type="text/css" />
     
-    <script defer src="./../../js/getCookies.js"></script>
-    <script defer src="./../../js/deleteCookies.js"></script>
-    <script defer src="./../../js/setCookies.js"></script>
-    <script defer src="./../../js/checkCookies.js"></script>
+    <script defer src="./../../js/getSessionStorage.js"></script>
+    <script defer src="./../../js/deleteSessionStorage.js"></script>
+    <script defer src="./../../js/setSessionStorage.js"></script>
     <script defer src="./../../js/dropBtn.js"></script>
     <script defer src="./js/calculadora.js"></script> <!-- Agregamos el script de la calculadora -->
   </head>
@@ -43,6 +42,11 @@
         <option value="./index.html">Mini-calculadora</option>
         <option value="./../conversorbases/index.html">Conversor</option>
     </select>    
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">String</option>
+      <option value="./../modificartexto/index.html">Modificar texto</option>
+      <option value="./../modificartexto-api/index.html">Modificar texto-API</option>
+    </select> 
       <a href="#" id="logoutButton">Cerrar Sesión</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
