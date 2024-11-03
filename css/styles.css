@@ -106,7 +106,7 @@ body {
   background-color: #555;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1150px) {
   .topnav a:not(:first-child), .topnav-select, #logoutButton {
     display: none; 
   }

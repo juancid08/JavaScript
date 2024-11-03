@@ -8,10 +8,11 @@
   <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="./css/styles.css" rel="stylesheet" type="text/css" />
   <script defer src="./js/transformacion-api.js"></script>
-  <script defer src="./../../js/getSessionStorage.js"></script>
-  <script defer src="./../../js/deleteSessionStorage.js"></script>
-  <script defer src="./../../js/setSessionStorage.js"></script>
-  <script defer src="./../../js/login.js"></script>
+  <script defer src="./../../js/indexedDB.js"></script>
+  <script defer src="./../../js/setIndexedDB.js"></script>
+  <script defer src="./../../js/getIndexedDB.js"></script>
+  <script defer src="./../../js/deleteIndexedDB.js"></script>
+  <script defer src="./../../js/login.js"></script>  
   <script defer src="./../../js/dropBtn.js"></script>
 </head>
 <body>
@@ -42,7 +43,11 @@
       <option value="">String</option>
       <option value="./../modificartexto/index.html">Modificar texto</option>
       <option value="./index.html">Modificar texto-API</option>
-    </select>  
+    </select> 
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">Array</option>
+      <option value="./../array/index.html">Matrices</option>
+    </select>   
     <a href="#" id="logoutButton">Cerrar Sesión</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
   </nav>

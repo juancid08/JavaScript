@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Validar credenciales
         if (usernameInput === storedUsername && passwordInput === storedPassword) {
-            // Guardar en sessionStorage
-            setSessionStorage("loggedIn", "true");
-            setSessionStorage("username", usernameInput); // Guardar el nombre del usuario
+            // Guardar en IndexedDB
+            setIndexedDB("loggedIn", "true");
+            setIndexedDB("username", usernameInput); // Guardar el nombre del usuario
 
             // Redirigir a la página principal
             window.location.href = "./main.html";
@@ -28,54 +28,70 @@ document.addEventListener("DOMContentLoaded", function() {
         loginButton.onclick = handleLogin;
     }
 
-    // Función para redirigir al login
-    function redirectToLogin() {
-        const path = window.location.pathname;
+    // Verificar el estado de inicio de sesión al cargar main.html
+    const path = window.location.pathname;
+    if (path.includes("main.html")) {
+        // Verificamos si el usuario está logueado
+        getIndexedDB("loggedIn").then((loggedInStatus) => {
+            if (loggedInStatus && loggedInStatus.valor === "true") {
+                // Si está logueado, mostramos el saludo
+                getIndexedDB("username").then((user) => {
+                    if (user) {
+                        const greetingMessageDiv = document.getElementById("greetingMessage");
+                        const message = `¡Bienvenido, ${user.valor}!`;
+                        greetingMessageDiv.textContent = message;
 
-        if (path.includes("/ejercicios/minicalculadora/index.html") ||
-            path.includes("/ejercicios/conversorbases/index.html") ||
-            path.includes("/ejercicios/modificartexto/index.html") ||
-            path.includes("/ejercicios/modificartexto-api/index.html")) {
-            return "../../index.html"; 
-        } else if (path.includes("/main.html")) {
-            return "index.html"; 
-        } else {
-            return "index.html"; 
-        }
+                        // Mostrar el saludo
+                        greetingMessageDiv.classList.add("show"); // Añadir la clase para mostrar el saludo
+                        greetingMessageDiv.style.display = "block"; // Mostrar el div
+
+                        // Ocultar el saludo después de 5 segundos
+                        setTimeout(function() {
+                            greetingMessageDiv.classList.remove("show"); // Quitar la clase para ocultar
+                            // Ocultar el div después de la transición
+                            setTimeout(() => {
+                                greetingMessageDiv.style.display = "none"; // Ocultar completamente
+                            }, 500); 
+                        }, 5000);
+
+                        // Limpiar la base de datos para que no se vuelva a mostrar el saludo en recargas
+                        deleteFromIndexedDB("username");
+                    }
+                }).catch((error) => {
+                    console.error("Error al obtener el usuario:", error);
+                });
+            } else {
+                window.location.href = "index.html"; 
+            }
+        }).catch((error) => {
+            console.error("Error al verificar el estado de inicio de sesión:", error);
+            window.location.href = "index.html"; 
+        });
     }
 
     // Manejar el cierre de sesión
     const logoutButton = document.getElementById("logoutButton");
     if (logoutButton) {
         logoutButton.onclick = function() {
-            endSession();
+            deleteFromIndexedDB("loggedIn");
+            deleteFromIndexedDB("username");
             window.location.href = redirectToLogin();
         };
     }
+    
+    function redirectToLogin() {
+        const path = window.location.pathname;
 
-    // Verificar sesión al cargar el main.html
-    const username = getSessionStorage("username");
-    const greetingMessageDiv = document.getElementById("greetingMessage");
-
-    // Verificar si estamos en main.html y si hay un usuario en sesión
-    const path = window.location.pathname;
-    if (path.includes("main.html") && username) {
-        // Mostrar el saludo
-        const message = `¡Bienvenido, ${username}!`;
-        greetingMessageDiv.textContent = message;
-        greetingMessageDiv.classList.add("show"); // Añadir la clase para mostrar el saludo
-        greetingMessageDiv.style.display = "block"; 
-
-        // Ocultar el mensaje después de 5 segundos
-        setTimeout(function() {
-            greetingMessageDiv.classList.remove("show"); 
-            // Ocultar el div después de la transición
-            setTimeout(() => {
-                greetingMessageDiv.style.display = "none"; // Ocultar completamente
-            }, 500); 
-        }, 5000);
-
-        // Limpiar la sesión para que no se vuelva a mostrar el saludo en recargas
-        sessionStorage.removeItem("username");
+        if (path.includes("/ejercicios/minicalculadora/index.html") ||
+            path.includes("/ejercicios/conversorbases/index.html") ||
+            path.includes("/ejercicios/modificartexto/index.html") ||
+            path.includes("/ejercicios/modificartexto-api/index.html") ||
+            path.includes("/ejercicios/array/index.html")) {
+            return "../../index.html"; 
+        } else if (path.includes("/main.html")) {
+            return "index.html"; 
+        } else {
+            return "index.html"; 
+        }
     }
 });

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones con Matrices</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="./img/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <script defer src="./../../js/indexedDB.js"></script>
+    <script defer src="./../../js/setIndexedDB.js"></script>
+    <script defer src="./../../js/getIndexedDB.js"></script>
+    <script defer src="./../../js/deleteIndexedDB.js"></script>
+    <script defer src="./../../js/login.js"></script>  
+    <script defer src="./js/array.js"></script>
+    <script defer src="./../../js/dropBtn.js"></script>
+</head>
+<body>
+  <div class="header">
+    <div class="header-text">
+      <h3>Ejemplos - FUNDAMENTOS DE JS (ES6)</h3>
+      <h4>Desarrollo WEB en entorno cliente</h4>
+      <h5>Plantilla03a</h5>
+    </div>
+    <img src="./img/Imagen de WhatsApp 2024-09-26 a las 10.14.46_afe3ab27.jpg" alt="Logo" class="header-image" />
+  </div>
+
+  <div class="topnav" id="myTopnav">
+    <a href="./../../main.html" class="active">Página principal</a>
+    <a href="https://es.javascript.info/js">javascript.info</a>
+    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN</a>
+    <a href="https://github.com/juancid08/JavaScript">GitHub</a>
+    
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">Number</option>
+      <option value="./../minicalculadora/index.html">Mini-calculadora</option>
+      <option value="./../coversorbases/index.html">Conversor</option>
+    </select>
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">String</option>
+      <option value="./../modificartexto/index.html">Modificar texto</option>
+      <option value="./../modificartexto-api/index.html">Modificar texto-API</option>
+    </select>
+    <select class="topnav-select" onchange="window.location.href=this.value;">
+      <option value="">Array</option>
+      <option value="./index.html">Matrices</option>
+    </select>  
+    <a href="#" id="logoutButton">Cerrar Sesión</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  <br />
+
+  <div id="greetingMessage" class="greeting-message"></div>
+
+  <main class="container">
+    <section class="apartado" id="apartado-rangos">
+        <h2>Rangos y Dimensiones</h2>
+        <form id="matrixForm">
+            <label for="dimension">Dimensión de la matriz:</label>
+            <input type="number" id="dimension" min="1" required>
+            <label for="rangoMin">Rango Inferior:</label>
+            <input type="number" id="rangoMin" required>
+            <label for="rangoMax">Rango Superior:</label>
+            <input type="number" id="rangoMax" required>
+            <div class="button-group">
+                <button type="button" id="botonValoresAleatorios">Valores Aleatorios</button>
+                <button type="button" id="botonGenerarMatrices">Generar Matrices</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="apartado" id="apartado-testeo">
+        <h2>Testeo</h2>
+        <div class="button-group">
+            <button type="button" id="botonAleatorio">Aleatorio</button>
+            <button type="button" id="botonParar">Parar</button>
+            <button type="button" id="botonRapido">Rápido</button>
+            <button type="button" id="botonLento">Lento</button>
+        </div>
+    </section>
+
+    <section class="apartado" id="apartado-operadores">
+        <h2>Operadores</h2> 
+        <div id="matricesGeneradas" class="resultados"></div>
+        <div class="button-group">
+            <button type="button" id="botonSumar">+</button>
+            <button type="button" id="botonRestar">-</button>
+            <button type="button" id="botonMultiplicar">*</button>
+        </div>
+    </section>
+
+    
+
+    <section id="resultado" class="resultados">
+        <h3>Resultado:</h3>
+        <div id="resultadoOperacion"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Juan Cid Benítez</footer>
+</body>
+</html>
