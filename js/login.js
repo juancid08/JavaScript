@@ -86,7 +86,11 @@ document.addEventListener("DOMContentLoaded", function() {
             path.includes("/ejercicios/conversorbases/index.html") ||
             path.includes("/ejercicios/modificartexto/index.html") ||
             path.includes("/ejercicios/modificartexto-api/index.html") ||
-            path.includes("/ejercicios/array/index.html")) {
+            path.includes("/ejercicios/array/index.html") ||
+            path.includes("/ejercicios/almacenCookies/index.html") ||
+            path.includes("/ejercicios/almacenIndexedDB/index.html") ||
+            path.includes("/ejercicios/almacenLocalStorage/index.html") ||
+            path.includes("/ejercicios/almacenSessionStorage/index.html")) {
             return "../../index.html"; 
         } else if (path.includes("/main.html")) {
             return "index.html"; 
