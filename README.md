@@ -20,7 +20,6 @@ Este proyecto contiene una serie de ejercicios diseñados para practicar y demos
 
 - **js/dropBtn.js**: Este archivo (si se incluye en el proyecto) manejaría la lógica para la funcionalidad del menú desplegable, permitiendo a los usuarios interactuar con opciones adicionales.
 
-- **js/array.js**: Este archivo contiene las funciones para el ejercicio de operaciones con matrices, permitiendo sumar, restar y multiplicar matrices.
 
 - **js/almacenCookies.js**: Este archivo contiene las funciones necesarias para guardar, actualizar y borrar datos utilizando cookies en el navegador. Permite almacenar un nombre y un valor, mostrando los datos almacenados y permitiendo interactuar con ellos.
 
