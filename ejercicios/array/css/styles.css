@@ -166,7 +166,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1456px) {
   .topnav a:not(:first-child), .topnav-select, #logoutButton {
     display: none; 
   }

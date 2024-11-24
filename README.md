@@ -20,6 +20,7 @@ Este proyecto contiene una serie de ejercicios diseñados para practicar y demos
 
 - **js/dropBtn.js**: Este archivo (si se incluye en el proyecto) manejaría la lógica para la funcionalidad del menú desplegable, permitiendo a los usuarios interactuar con opciones adicionales.
 
+- **js/array.js**: Este archivo contiene las funciones para el ejercicio de operaciones con matrices, permitiendo sumar, restar y multiplicar matrices.
 
 - **js/almacenCookies.js**: Este archivo contiene las funciones necesarias para guardar, actualizar y borrar datos utilizando cookies en el navegador. Permite almacenar un nombre y un valor, mostrando los datos almacenados y permitiendo interactuar con ellos.
 
@@ -225,3 +226,135 @@ El almacenamiento se mantiene solo durante la sesión activa, lo que significa q
 - **borrarDato.js**: Permite borrar un registro de `sessionStorage` según el nombre.
 
 ---
+
+### 10. Gestión de la Colada con Pila
+
+**Archivo:** colada/index.html
+
+Este ejercicio demuestra cómo gestionar una **colada de ropa** utilizando una estructura de datos llamada **pila** (stack). Los usuarios pueden **añadir** y **retirar** prendas de la pila a medida que se "lava" la ropa. Cuando la pila alcanza un cierto límite (en este caso, 10 prendas), se muestra un mensaje de advertencia. Además, el programa ofrece mensajes dinámicos sobre la cantidad de ropa restante y la siguiente prenda a lavar.
+
+**JavaScript:** colada/js/main.js, colada/js/scriptColada.js, colada/classes/Lista.js, colada/classes/Pila.js, colada/modules/aleatorio.js
+
+- **main.js**: Este archivo inicializa la pila de ropa y gestiona la interacción con los botones de "Introducir Prenda" y "Sacar Prenda". También se encarga de procesar los eventos que permiten añadir o sacar prendas de la pila.
+- **scriptColada.js**: Contiene las funciones para gestionar el **añadir** una prenda a la pila y **retirar** una prenda de la pila, mostrando mensajes de advertencia, error o información según corresponda.
+- **aleatorio.js**: Define una lista de prendas de ropa y una función que selecciona aleatoriamente una prenda para ser añadida a la pila.
+- **Lista.js**: Clase base que define una lista dinámica para almacenar elementos, utilizada por las clases `Pila` y `Cola`.
+- **Pila.js**: Extiende la clase `Lista` y gestiona los métodos específicos de una pila como `apilar` (añadir) y `desapilar` (retirar).
+
+
+**Descripción del ejercicio:**
+
+Este ejercicio permite simular el proceso de gestión de una colada de ropa utilizando la estructura de datos **pila**, que sigue el principio de **último en entrar, primero en salir (LIFO)**. Los usuarios pueden:
+
+- **Introducir prendas aleatorias** en la pila mediante un botón.
+- **Sacar prendas** de la pila, lo que representa el lavado de las prendas.
+- Visualizar los mensajes correspondientes, incluyendo advertencias cuando se alcanza el límite de 10 prendas en la pila.
+
+**Interacción:**
+- Al hacer clic en "Introducir Prenda", se genera una prenda aleatoria y se añade a la pila.
+- Al hacer clic en "Sacar Prenda", se retira la última prenda añadida y se muestra un mensaje con la prenda retirada y el estado de la pila.
+- Si la pila alcanza 10 prendas, se muestra un mensaje de advertencia instando a lavar la ropa.
+
+**Estructura del archivo:**
+
+- **index.html**: Página principal que muestra los botones para añadir y sacar prendas, junto con un área para mostrar los mensajes de estado.
+- **main.js**: Gestiona la interacción con los botones y la pila de prendas.
+- **scriptColada.js**: Define la lógica para añadir o retirar prendas de la pila y muestra los mensajes de estado.
+- **aleatorio.js**: Proporciona una lista de prendas aleatorias para la simulación.
+- **Lista.js**: Clase que implementa una lista genérica, utilizada por las clases `Pila` y `Cola`.
+- **Pila.js**: Clase que extiende de `Lista` y implementa las operaciones específicas de una pila.
+
+---
+### 11. Gestión de un Taller con una Cola
+
+**Archivo:** taller/index.html
+
+Este ejercicio simula la gestión de un taller utilizando una estructura de datos tipo **cola** (FIFO). En el taller, los coches llegan para ser reparados y se atienden en el mismo orden en que llegaron. Los usuarios pueden gestionar la llegada de los coches y la atención de los mismos, mostrando un mensaje con el estado de la cola y el coche que se está atendiendo.
+
+**JavaScript:** taller/js/main.js, taller/js/scriptTaller.js, taller/classes/Lista.js, taller/classes/Cola.js, taller/modules/aleatorio.js
+
+- **main.js**: Este archivo gestiona los eventos de llegada de coches y atención a los mismos, conectando los botones del HTML con las funciones correspondientes.
+- **scriptTaller.js**: Contiene las funciones que gestionan la llegada y la atención de los coches en la cola.
+- **aleatorio.js**: Define una lista de coches con su tipo y emoji, y selecciona aleatoriamente uno de ellos cuando llega un nuevo coche al taller.
+- **Lista.js**: Clase que implementa una lista genérica, utilizada por la clase `Cola` para gestionar los coches.
+- **Cola.js**: Clase que extiende de `Lista` y gestiona las operaciones específicas de una cola, como **encolar** (añadir) y **desencolar** (atender).
+
+**Descripción del ejercicio:**
+
+Este ejercicio utiliza una estructura de datos tipo **cola**, la cual sigue el principio de **Primero en Entrar, Primero en Salir (FIFO)**. Los usuarios pueden:
+
+- **Introducir un coche** aleatorio en la cola del taller.
+- **Atender un coche** (el primero en la cola), lo que simula el proceso de reparación.
+- Visualizar los mensajes correspondientes, como el estado de la cola y los coches en espera o reparados.
+
+**Interacción:**
+- Al hacer clic en "Llegada de coche", se genera un coche aleatorio (con un tipo y un emoji) y se añade a la cola, mostrando un mensaje con los coches que están esperando.
+- Al hacer clic en "Atender coche", se retira el primer coche de la cola y se muestra un mensaje con el coche atendido y los coches restantes.
+
+Si la cola alcanza el límite de 10 coches, se muestra un mensaje de advertencia sugiriendo que se empiece a reparar los coches. Si no hay coches en espera, se muestra un mensaje indicando que no hay más coches para reparar.
+
+**Estructura del archivo:**
+
+- **index.html**: Página principal que contiene los botones para gestionar la llegada y atención de los coches, y un área para mostrar los mensajes.
+- **main.js**: Conecta los eventos de los botones con las funciones de gestión de la cola.
+- **scriptTaller.js**: Define las funciones para gestionar los coches en la cola, incluyendo su llegada y atención.
+- **aleatorio.js**: Proporciona una lista de coches aleatorios para simular las llegadas al taller.
+- **Lista.js**: Implementa una lista genérica que es utilizada por la clase `Cola`.
+- **Cola.js**: Implementa la estructura de datos **cola** y las operaciones específicas sobre ella.
+
+---
+## 12. Gestión de Tareas con Lista y Prioridad
+
+**Archivo:** `index.html`
+
+Este ejercicio simula la gestión de tareas usando una lista y también incorpora tareas prioritarias. Las tareas se pueden añadir de manera normal o con prioridad. Los usuarios pueden gestionar la llegada de tareas y su eliminación, mostrando un mensaje con el estado de las listas.
+
+### Archivos:
+- **HTML**: `index.html`
+- **JavaScript**:
+  - `main.js`
+  - `modules/scriptTarea.js`
+  - `modules/aleatorio.js`
+  - `classes/Lista.js`
+
+
+### Descripción del ejercicio:
+Este ejercicio simula la gestión de tareas con dos listas:
+1. **Lista de tareas**: Se pueden añadir y eliminar tareas de forma aleatoria.
+2. **Lista de tareas prioritarias**: Las tareas se añaden con una prioridad aleatoria (de 0 a 9), y se eliminan en orden de mayor a menor prioridad.
+
+Los usuarios pueden:
+- **Añadir una tarea** aleatoria a la lista de tareas.
+- **Eliminar una tarea** aleatoria de la lista de tareas.
+- **Añadir una tarea con prioridad** aleatoria.
+- **Eliminar la tarea con la mayor prioridad**.
+
+### Interacción:
+- Al hacer clic en "Añadir tarea", se genera una tarea aleatoria y se añade a la lista de tareas.
+- Al hacer clic en "Eliminar tarea", se elimina una tarea aleatoria de la lista.
+- Al hacer clic en "Añadir tarea prioritaria", se genera una tarea aleatoria y se asigna una prioridad aleatoria, añadiéndola a la lista de tareas prioritarias.
+- Al hacer clic en "Eliminar tarea prioritaria", se elimina la tarea con la mayor prioridad de la lista.
+
+Si alguna lista alcanza su límite máximo de tareas, se muestra un mensaje indicando que se deben empezar a procesar las tareas. Si no hay tareas para procesar, se muestra un mensaje indicando que no hay más tareas.
+
+### Estructura del archivo:
+- **index.html**: Página principal que contiene los botones para gestionar la llegada y eliminación de tareas, y un área para mostrar las listas de tareas.
+- **main.js**: Conecta los eventos de los botones con las funciones de gestión de las tareas.
+- **scriptTarea.js**: Define las funciones para gestionar las tareas en las listas, tanto normales como prioritarias.
+- **aleatorio.js**: Proporciona una lista de tareas aleatorias para simular las llegadas de tareas.
+- **Lista.js**: Implementa una lista genérica que es utilizada por las clases `Pila` y `Cola`.
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
